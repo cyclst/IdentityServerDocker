@@ -15,8 +15,10 @@ public class Index : PageModel
         
     public async Task<IActionResult> OnGet()
     {
-        var localAddresses = new string[] { "127.0.0.1", "::1", HttpContext.Connection.LocalIpAddress.ToString() };
-        if (!localAddresses.Contains(HttpContext.Connection.RemoteIpAddress.ToString()))
+        // IDSD - Replaced
+        var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+        if (env.ToLower() != "development")
         {
             return NotFound();
         }

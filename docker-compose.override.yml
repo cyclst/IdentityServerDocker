@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  identityserver:
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:15001
+      Authentication__Clients__Web__Uris: http://host.docker.internal:15000,http://localhost:15000
+    ports:
+      - "15001:15001"
+
+  webclient:
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:15000
+      Auth__IdentityServerUrl: http://host.docker.internal:15001
+      Auth__RequireHttpsMetadata: "false"
+    ports:
+      - "15000:15000"

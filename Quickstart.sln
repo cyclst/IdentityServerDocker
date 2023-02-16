@@ -1,25 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33103.201
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{52FE7FA2-9648-4BB9-AFF4-64C0C9A97E44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "src\IdentityServer\IdentityServer.csproj", "{CD3B4286-96ED-4840-BE39-0696D5E2529A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "src\IdentityServer\IdentityServer.csproj", "{CD3B4286-96ED-4840-BE39-0696D5E2529A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "src\Api\Api.csproj", "{F985371A-37BF-48DB-873A-5E20802564A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "src\Api\Api.csproj", "{F985371A-37BF-48DB-873A-5E20802564A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "src\Client\Client.csproj", "{1C77608B-A3F3-412D-8AE7-05549B80726F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "src\Client\Client.csproj", "{1C77608B-A3F3-412D-8AE7-05549B80726F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebClient", "src\WebClient\WebClient.csproj", "{DFB135E6-2E39-42E3-B613-58E5DE7718AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebClient", "src\WebClient\WebClient.csproj", "{DFB135E6-2E39-42E3-B613-58E5DE7718AE}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{550DC44C-7DB9-44EF-98E0-80FF2C009B33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{CD3B4286-96ED-4840-BE39-0696D5E2529A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -38,6 +37,13 @@ Global
 		{DFB135E6-2E39-42E3-B613-58E5DE7718AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFB135E6-2E39-42E3-B613-58E5DE7718AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFB135E6-2E39-42E3-B613-58E5DE7718AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{550DC44C-7DB9-44EF-98E0-80FF2C009B33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{550DC44C-7DB9-44EF-98E0-80FF2C009B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{550DC44C-7DB9-44EF-98E0-80FF2C009B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{550DC44C-7DB9-44EF-98E0-80FF2C009B33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CD3B4286-96ED-4840-BE39-0696D5E2529A} = {52FE7FA2-9648-4BB9-AFF4-64C0C9A97E44}

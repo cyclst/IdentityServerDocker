@@ -33,15 +33,16 @@ public static class Config
         { 
         };
 
-    public static IEnumerable<Client> Clients =>
-        new List<Client> 
+    public static IEnumerable<Client> GetClients(IConfiguration configuration)
+    {
+        return new List<Client>
         {
             // machine-to-machine client (from quickstart 1)
             new Client
             {
                 ClientId = "client",
                 ClientSecrets = { new Secret("secret".Sha256()) },
-                
+
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 // scopes that client has access to
                 AllowedScopes = { "api1" }
@@ -55,10 +56,13 @@ public static class Config
                 AllowedGrantTypes = GrantTypes.Code,
 
                 // where to redirect after login
-                RedirectUris = { "https://localhost:5002/signin-oidc" },
+                //RedirectUris = { $"{configuration["Authentication:Clients:Web:Uri"]}/signin-oidc" },
+                RedirectUris = configuration["Authentication:Clients:Web:Uris"].Split(",").Select(x => $"{x}/signin-oidc").ToList(),
+                //RedirectUris = { "http://host.docker.internal:15000/signin-oidc,http://localhost:15000/signin-oidc" },
 
                 // where to redirect after logout
-                PostLogoutRedirectUris = { "https://localhost:5002/signout-callback-oidc" },
+                //PostLogoutRedirectUris = { $"{configuration["Authentication:Clients:Web:Uri"]}/signout-callback-oidc" },
+                PostLogoutRedirectUris = configuration["Authentication:Clients:Web:Uris"].Split(",").Select(x => $"{x}/signout-callback-oidc").ToList(),
 
                 AllowOfflineAccess = true,
 
@@ -70,4 +74,5 @@ public static class Config
                 }
             }
         };
+    }
 }
