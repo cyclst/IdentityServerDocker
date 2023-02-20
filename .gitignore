@@ -22,48 +22,11 @@ packages/
 logs/
 log*.txt
 
-#bower content
-**/wwwroot/lib/*
-**/wwwroot/pureui/*
-**/bower_components/*
-
 *.orig
 
 # Azure Functions localsettings file
 local.settings.json
 
-### Terraform ###
-# Local .terraform directories
-**/.terraform*
-
-# .tfstate files
-*.tfstate
-*.tfstate.*
-
-
-# Crash log files
-crash.log
-
-# Ignore any .tfvars files that are generated automatically for each Terraform run. Most
-# .tfvars files are managed as part of configuration and so should be included in
-# version control.
-#
-# example.tfvars
-
-# Ignore override files as they are usually used to override resources locally and so
-# are not checked in
-override.tf
-override.tf.json
-*_override.tf
-*_override.tf.json
-
-# Include override files you do wish to add to version control using negated pattern
-# !example_override.tf
-
-# Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
-# example: *tfplan*
-
-*.secrets.tfvars
 
 # Ignore auto-generated SpecFlow files as they are now built by msbuild
 **/*.feature.cs
@@ -76,17 +39,9 @@ override.tf.json
 launchSettings.json
 *.development.pubxml
 
-# PO Editor
-.pokey
-*.*-*.resx
-*.??.resx
-*_POEditor.resx
-
 secrets.json
 .env
 
-tflog.txt
-src/PureGym.IdentityServer.Web/npm-debug.log
 src/npm-debug.log
 
 keys/
