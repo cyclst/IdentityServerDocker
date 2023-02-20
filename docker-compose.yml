@@ -13,3 +13,9 @@ services:
       context: .
       dockerfile: src/WebClient/Dockerfile
 
+  api:
+    image: ${DOCKER_REGISTRY-}api
+    build:
+      context: .
+      dockerfile: src/Api/Dockerfile
+

@@ -14,7 +14,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer(options =>
     {
-        options.Authority = "https://localhost:5001";
+        // IDSD - Changed to allow property value to come from appsettings (and be overriden by docker-componse environment variables
+        options.Authority = builder.Configuration["Authentication:IdentityServerUrl"];
+
+        // IDSD - Added to allow property value to come from appsettings (and be overriden by docker-componse environment variables
+        options.RequireHttpsMetadata = builder.Configuration.GetValue<bool>("Authentication:RequireHttpsMetadata");
+
         options.TokenValidationParameters.ValidateAudience = false;
     });
 builder.Services.AddAuthorization(options =>

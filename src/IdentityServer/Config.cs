@@ -56,13 +56,12 @@ public static class Config
                 AllowedGrantTypes = GrantTypes.Code,
 
                 // where to redirect after login
-                //RedirectUris = { $"{configuration["Authentication:Clients:Web:Uri"]}/signin-oidc" },
-                RedirectUris = configuration["Authentication:Clients:Web:Uris"].Split(",").Select(x => $"{x}/signin-oidc").ToList(),
-                //RedirectUris = { "http://host.docker.internal:15000/signin-oidc,http://localhost:15000/signin-oidc" },
+                // IDSD - Changed to allow property value to come from appsettings (and be overriden by docker-componse environment variables
+                RedirectUris = { $"{configuration["Authentication:Clients:Web:Uri"]}/signin-oidc" },
 
-                // where to redirect after logout
-                //PostLogoutRedirectUris = { $"{configuration["Authentication:Clients:Web:Uri"]}/signout-callback-oidc" },
-                PostLogoutRedirectUris = configuration["Authentication:Clients:Web:Uris"].Split(",").Select(x => $"{x}/signout-callback-oidc").ToList(),
+                // where to redirect after logout,
+                // IDSD - Changed to allow property value to come from appsettings (and be overriden by docker-componse environment variables
+                PostLogoutRedirectUris = { $"{configuration["Authentication:Clients:Web:Uri"]}/signout-callback-oidc" },
 
                 AllowOfflineAccess = true,
 

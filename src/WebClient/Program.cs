@@ -19,8 +19,11 @@ builder.Services.AddAuthentication(options =>
     .AddCookie("Cookies")
     .AddOpenIdConnect("oidc", options =>
     {
-        options.Authority = builder.Configuration["Auth:IdentityServerUrl"]; // IDSD - Changed
-        options.RequireHttpsMetadata = builder.Configuration.GetValue<bool>("Auth:RequireHttpsMetadata"); // IDSD - Added
+        // IDSD - Changed
+        options.Authority = builder.Configuration["Authentication:IdentityServerUrl"];
+
+        // IDSD - Added
+        options.RequireHttpsMetadata = builder.Configuration.GetValue<bool>("Authentication:RequireHttpsMetadata");
 
         options.ClientId = "web";
         options.ClientSecret = "secret";
@@ -62,5 +65,11 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages().RequireAuthorization();
+
+// IDSD - Added a quick hack to allow IDS to stand up before being contacted
+if (app.Environment.IsDevelopment())
+{
+    Task.Delay(2000).Wait();
+}
 
 app.Run();
