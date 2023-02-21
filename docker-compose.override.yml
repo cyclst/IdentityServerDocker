@@ -6,6 +6,7 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:15001
       Authentication__Clients__Web__Uri: http://localhost:15000
+      Authentication__Clients__Javascript__Uri: http://localhost:15003
     ports:
       - "15001:15001"
 
@@ -27,3 +28,12 @@ services:
       Authentication__RequireHttpsMetadata: "false"
     ports:
       - "16001:16001"
+
+  javascriptclient:
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:15003
+    ports:
+      - "15003:15003"
+    volumes:
+        - ./src/JavaScriptClient/wwwroot/env.docker.js:/app/wwwroot/env.js

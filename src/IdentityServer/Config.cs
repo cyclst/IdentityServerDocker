@@ -71,6 +71,25 @@ public static class Config
                     IdentityServerConstants.StandardScopes.Profile,
                     "api1"
                 }
+            },
+            // JavaScript Client
+            new Client
+            {
+                ClientId = "js",
+                ClientName = "JavaScript Client",
+                AllowedGrantTypes = GrantTypes.Code,
+                RequireClientSecret = false,
+
+                RedirectUris =           { $"{configuration["Authentication:Clients:Javascript:Uri"]}/callback.html" },
+                PostLogoutRedirectUris = { $"{configuration["Authentication:Clients:Javascript:Uri"]}/index.html" },
+                AllowedCorsOrigins =     { $"{configuration["Authentication:Clients:Javascript:Uri"]}" },
+
+                AllowedScopes =
+                {
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    "api1"
+                }
             }
         };
     }

@@ -19,3 +19,10 @@ services:
       context: .
       dockerfile: src/Api/Dockerfile
 
+
+  javascriptclient:
+    image: ${DOCKER_REGISTRY-}javascriptclient
+    build:
+      context: .
+      dockerfile: src/JavaScriptClient/Dockerfile
+
