@@ -7,7 +7,7 @@ Some changes were required to the original quickstart files, but I have tried to
 
 Please note: These changes made are the minimum effort to get the quickstarts working in docker desktop for local development and are not suitable for production. I have decorated changes with if(Environment.IdDevelopment()) where possible.
 
-The high level overview of these changes were as follows:
+The high level overview of these changes are as follows:
 
 1. Add Contaner Orchestration Support in each project
 2. Replace the hard coded urls in code with values defined in appsettings configuration
